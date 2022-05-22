@@ -11,7 +11,7 @@ async function getAll(){
 
 async function getByIdyCampo(id, campo){
   const result = await db.query(
-    `SELECT ${campo} from userData WHERE userId = "${id}"`
+    `SELECT ${campo} from userData WHERE id = "${id}"`
   );
   return result;
 }
