@@ -10,7 +10,7 @@ router.get('', async function(req, res, next) {
       res.json(await userData.getByIdyCampo(req.query.id, req.query.campo));
     }
   } catch (err) {
-    console.error(`Error while getting programming languages `, err.message);
+    console.error(`Error while getting user data `, err.message);
     next(err);
   }
 });

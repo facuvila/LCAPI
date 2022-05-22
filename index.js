@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const userDataRouter = require("./controller/userDataController");
+const userDataRouter = require("./controllers/userDataController");
 
 app.use(express.json());
 app.use(
