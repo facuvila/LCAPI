@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const userDataRouter = require("./controllers/userDataController");
+const transactionController = require("./controllers/transactionController");
 
 app.use(express.json());
 app.use(
@@ -16,6 +17,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/getUserData", userDataRouter);
+app.use("/transaction", transactionController);
+
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

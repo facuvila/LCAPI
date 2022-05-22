@@ -2,23 +2,15 @@ const db = require('./db');
 const helper = require('../helper');
 const config = require('../config');
 
-async function getAll(){
-  const result = await db.query(
-    `SELECT * from userData`
+async function transfer(idOrigen, idDestino, monto){
+  await db.query(
+    `UPDATE userData SET balance = balance - ${monto} WHERE userName = ${idOrigen}`
   );
-  return result;
-}
-
-async function getByIdyCampo(id, campo){
-  const result = await db.query(
-    `SELECT ${campo} from userData WHERE id = "${id}"`
+  await db.query(
+    `UPDATE userData SET balance = balance + ${monto} WHERE userName = ${idDestino}`
   );
-  return result;
 }
-
-
 
 module.exports = {
-  getAll,
-  getByIdyCampo
+  transfer
 }
