@@ -4,7 +4,7 @@ const userData = require('../services/userDataService');
 
 router.get('', async function(req, res, next) {
   try {
-    if (!req.query.id && !req.query.id) {
+    if (!req.query.id && !req.query.campo) {
         res.json(await userData.getAll());
     } else {
       res.json(await userData.getByIdyCampo(req.query.id, req.query.campo));
