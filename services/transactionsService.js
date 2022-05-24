@@ -5,10 +5,10 @@ const res = require('express/lib/response');
 
 async function transfer(idOrigen, idDestino, monto){
   await db.query(
-    `UPDATE userData SET balance = balance - ${monto} WHERE id = ${idOrigen}`
+    `UPDATE userData SET balance = balance - ${monto} WHERE userName = '${idOrigen}'`
   );
   await db.query(
-    `UPDATE userData SET balance = balance + ${monto} WHERE id = ${idDestino}`
+    `UPDATE userData SET balance = balance + ${monto} WHERE userName = '${idDestino}'`
   );
 }
 

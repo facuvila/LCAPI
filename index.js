@@ -1,11 +1,10 @@
 const express = require("express");
 const app = express();
+var cors = require('cors');
+app.use(cors());
 const port = 3000;
 const userDataRouter = require("./controllers/userDataController");
 const transactionRouter = require("./controllers/transactionController");
-
-var cors = require('cors');
-app.use(cors());
 
 app.use(express.json());
 app.use(
